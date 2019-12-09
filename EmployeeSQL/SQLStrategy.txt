@@ -1,1 +1,24 @@
 Basic Strategy for EmployeeSQL Assignment
+
+1. TABLES WITH OBVIOUS PRIMARY KEYS FROM TABLE CONTENTS: 
+	Two tables have unique Primary Keys, employees table and departments table. In the employees table, the emp_no
+is a unique employee number not replicated in the table. In the departments table, the dept_no is a unique department number
+not replicated in the table. These are placed at the top of the diagram.
+
+2. TABLES WITHOUT PRIMARY KEYS FROM TABLE CONTENTS: 
+	A. The salaries and titles tables have problems with Primary Keys. Each employee can have different salaries and titles as they are 
+promoted. Likewise, the same titles and salaries can be assigned to different employees as they are promoted. Therefore, salaries and
+titles tables may not have unique Primary Keys based only on table entries. I have added identifier numbers as VARCHAR to provide unique
+Primary Keys for these tables. NOTE: composite keys are possible, but I think may be more complex than required.
+
+	B. The dept_emp and dept_manager tables also have issues with Primary Keys based on table data. Each department can have multiple
+employees and each employee may work in different departments over time. Each department may have different managers and the same
+employee could manage different departments as they are promoted. As with salaries and titles, I have added identifier numbers
+as VARCHAR to provide Primary Keys for these tables.
+
+STRATEGY FOR INTERACTIONS (FOREIGN KEYS) BETWEEN TABLES
+	The salaries, titles, dept_emp, and dept_manager tables clearly have emp_no values that can be referenced directly to the employess table.
+In addition, the dept_emp and dept_manager tables also contain dept_no information that can be referenced to the departments table. For design
+of Primary and Foreign Keys, I decided to use the employees and departments tables for emp_no and dept_no Primary Keys and linking these as
+Foreign Keys in the salaries, titles, dept_emp and dept_manager tables. The single entries for emp_no and dept_no in employees and departments
+tables and potential multiple entries for these in other tables suggest a One-to-Many relationship is appropriate. 
