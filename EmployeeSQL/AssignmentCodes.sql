@@ -80,4 +80,11 @@ GROUP BY last_name
 ORDER BY COUNT(last_name) DESC; 
 --Baba 226 to Foolsday with 1 count, 1638 rows.
 
+--Bonus Question
+CREATE TABLE bonus_table AS
+SELECT salaries.emp_no, salaries.salary, titles.title
+FROM salaries
+INNER JOIN titles
+ON salaries.emp_no = titles.emp_no;
 
+SELECT * FROM bonus_table;
